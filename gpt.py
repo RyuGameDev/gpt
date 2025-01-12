@@ -16,7 +16,7 @@ def chat():
             return jsonify({"error": "Messages cannot be empty."}), 400
         
         # Inisialisasi client dan buat permintaan
-        client = Client
+        client = Client()
         print(messages)
         response = client.chat.completions.create(
             model=model,
@@ -30,6 +30,7 @@ def chat():
         })
     
     except Exception as e:
+        print(e)
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':

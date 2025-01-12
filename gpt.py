@@ -16,7 +16,8 @@ def chat():
             return jsonify({"error": "Messages cannot be empty."}), 400
         
         # Inisialisasi client dan buat permintaan
-        client = Client()
+        client = Client
+        print(messages)
         response = client.chat.completions.create(
             model=model,
             messages=messages,
